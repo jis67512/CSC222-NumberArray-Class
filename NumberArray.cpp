@@ -48,10 +48,47 @@ double NumberArray::getMin() const
     return minimum;
 }
 
+double NumberArray::getMax() const
+{
+    double maximum = data[0];
+
+    for (int i = 1; i < size; i++)
+    {
+        if (data[i] > maximum)
+        {
+            maximum = data[i];
+        }
+    }
+
+    return maximum;
+}
+
+double NumberArray::getAverage() const
+{
+    double sum = 0.0;
+
+    for (int i = 0; i < size; i++)
+    {
+        sum += data[i];
+    }
+
+    return sum / size;
+}
+
 void NumberArray::setNumber(int index, double value)
 {
     if (index >= 0 && index < size)
     {
         data[index] = value;
     }
+}
+
+void NumberArray::print() const
+{
+    std::cout << "NumberArray contents: ";
+    for (int i = 0; i < size; i++)
+    {
+        std::cout << data[i] << " ";
+    }
+    std::cout << std::endl;
 }
